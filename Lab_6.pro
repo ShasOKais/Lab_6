@@ -10,10 +10,13 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    mysquare.cpp
 
 HEADERS += \
-    mainwindow.h
+    SimpleVector.h \
+    mainwindow.h \
+    mysquare.h
 
 FORMS += \
     mainwindow.ui
