@@ -40,30 +40,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QPushButton" name="pushButton_Save">
-           <property name="text">
-            <string>Сохранить</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton_Load">
-           <property name="text">
-            <string>Загрузить</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
         <widget class="QComboBox" name="comboBox">
-         <item>
-          <property name="text">
-           <string>Круг</string>
-          </property>
-         </item>
          <item>
           <property name="text">
            <string>Прямоугольник</string>
@@ -71,14 +48,59 @@
          </item>
          <item>
           <property name="text">
-           <string>Треугольник</string>
+           <string>Круг</string>
           </property>
          </item>
-         <item>
-          <property name="text">
-           <string>Линия</string>
-          </property>
-         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="doubleSpinBox">
+         <property name="minimum">
+          <double>0.100000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>10.000000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.250000000000000</double>
+         </property>
+         <property name="value">
+          <double>1.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="maximum">
+          <number>10</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="RB_RED">
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Красный</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="RB_BLUE">
+         <property name="text">
+          <string>Синий</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="RB_GREEN">
+         <property name="text">
+          <string>Зеленый</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -93,6 +115,13 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_Delete">
+         <property name="text">
+          <string>Очистить</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

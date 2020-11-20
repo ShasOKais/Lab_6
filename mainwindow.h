@@ -8,7 +8,8 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <QGraphicsScene>
-#include <bits/stdc++.h>
+#include <QGraphicsSceneMouseEvent>
+
 #include "mysquare.h"
 #include "SimpleVector.h"
 
@@ -25,14 +26,18 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_comboBox_activated(int index);
-
-    void DrawCircle();
+    void on_comboBox_activated(int index); // использование класса объектов
+    // следующие слоты работают для выделенных объектов
+    void keyPressEvent(QKeyEvent *d); // при нажатии активируется триггер
+    void on_RB_RED_clicked(); // перекрашивает объекты в КРАСНЫЙ
+    void on_RB_BLUE_clicked(); // перекрашивает объекты в СИНИЙ
+    void on_RB_GREEN_clicked(); // перекрашивает объекты в ЗЕЛЕНЫЙ
+    void on_doubleSpinBox_valueChanged(double arg1); // устанавливает размер
+    void on_pushButton_Delete_clicked();
 
 private:
+    SimpleVector<MySquare*>stor;
     QGraphicsScene *scene;
-    MySquare *square;
     Ui::MainWindow *ui;
-    //void paintEvent(QPaintEvent *);
 };
 #endif // MAINWINDOW_H
