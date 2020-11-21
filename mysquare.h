@@ -14,28 +14,29 @@ public:
     MySquare();
 
     bool Pressed = false;
-
-    virtual QRectF boundingRect() const = 0;
+    // Методы не определны и строго указываем что у этих методов нет реализации
+    // и все кто отнаследовались обязаны реализовать эти методы сами
+    virtual QRectF boundingRect() const = 0; // отрисовывает матрицу для манипуляции с объектами
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) = 0; // отрисовка фигур
-    virtual void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);
-    virtual bool ThisAlloc() = 0;
-    virtual void setBrush(QBrush brush) = 0;
+    virtual void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) = 0; // триггер двойоного нажатия мыши
+    virtual bool ThisAlloc() = 0; // возвращает "выделены или круг"
+    virtual void setBrush(QBrush brush) = 0; // установить кисть
 
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+    void mousePressEvent(QGraphicsSceneMouseEvent *event); // проверка нажатия кнопки мыши
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event); // проверка отжатия кнопки мыши
 
 protected slots:
-    QPen TempPen();
-    QBrush AllocSquare();
+    QPen TempPen(); // обводка для выделенных фигур
+    QBrush AllocSquare(); // заливка для выделенных фигур
 };
 
-class CCircle : public MySquare {
+class CCircle : public MySquare { // класс Круга
 private:
-    QRectF rect_;
-    QBrush brush_;
-    QPen pen_;
-    QPainter *painter;
-    bool isAlloc = false;
+    QRectF rect_; // фигура
+    QBrush brush_; // кисть
+    QPen pen_; // ручка обводки
+    QPainter *painter; // метод отрисовки
+    bool isAlloc = false; // выделен ли?
 public:
     CCircle() : MySquare() {
 
@@ -45,7 +46,7 @@ public:
         this->pen_  = Pen;
         this->brush_ = Brush;
     }
-
+    // отнаследованные методы, описаны в суперклассе
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
@@ -54,7 +55,7 @@ public:
     bool ThisAlloc() override;
 };
 
-class CRect : public MySquare {
+class CRect : public MySquare { // класс Прямоугольника
 private:
     QRectF rect_;
     QBrush brush_;
@@ -71,9 +72,8 @@ public:
         this->pen_ = Pen;
         this->brush_ = Brush;
     }
-
+    // отнаследованные методы, описаны в суперклассе
     QRectF boundingRect() const override;
-
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
     void setBrush(QBrush brush) override;

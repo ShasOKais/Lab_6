@@ -8,12 +8,6 @@ MySquare::MySquare()
     setFlag(ItemIsMovable);
 }
 
-void MySquare::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
-{
-    update();
-    QGraphicsItem::mouseDoubleClickEvent(event);
-}
-
 void MySquare::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     Pressed = true;

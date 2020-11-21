@@ -33,11 +33,11 @@ private slots:
     void on_RB_BLUE_clicked(); // перекрашивает объекты в СИНИЙ
     void on_RB_GREEN_clicked(); // перекрашивает объекты в ЗЕЛЕНЫЙ
     void on_doubleSpinBox_valueChanged(double arg1); // устанавливает размер
-    void on_pushButton_Delete_clicked();
+    void on_pushButton_Delete_clicked(); // очистка формы от фигур
 
 private:
-    SimpleVector<MySquare*>stor;
-    QGraphicsScene *scene;
+    SimpleVector<MySquare*>stor; // хранилище фигур
+    QGraphicsScene *scene; // инициализация сцены
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
